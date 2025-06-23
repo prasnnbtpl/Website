@@ -1,27 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap'
 import { sampleProducts } from './data'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <header>BTPL</header>
+    <div className="d-flex flex-column vh-100">
+      <header>
+        <Navbar bg='dark' variant='dark' expand="lg">
+          <Container>
+          <Navbar.Brand>BTPL</Navbar.Brand>
+        </Container>
+        <Nav>
+          <a href="/cart" className='nav-link'>Cart</a>
+          <a href="/signin" className='nav-link'>Sign In</a>
+        </Nav>
+        </Navbar>
+        
+      </header>
       <main>
-        <ul>
+        <Container className='mt-3'>
+        <Row>
         {
         sampleProducts.map(products => 
-        <li key={products.slug}>
+        <Col key={products.slug} sm={6} md={4} lg={3}>
           <img src={products.image} alt={products.name} className='product-image' />
           <h2>{products.name}</h2>
           <p>{products.price}</p>
-        </li>)}   
-        </ul>
+        </Col>)}   
+        </Row>
+        </Container>
       </main>
-      <footer>All Right Reserved</footer>
+      <footer>
+        <div className='text-center'>All Right Reserved</div>
+        </footer>
     </div>
   )
 }
