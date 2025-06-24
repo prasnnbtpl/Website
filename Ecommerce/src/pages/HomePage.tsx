@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function HomePage() {
   return (
-        <Row>
+    <Row>
         {
         sampleProducts.map(products => 
         <Col key={products.slug} sm={6} md={4} lg={3}>
@@ -14,6 +14,6 @@ export default function HomePage() {
           <p>{products.price}</p>
             </Link>
         </Col>)}   
-        </Row>
+    </Row>
   )
 }
